@@ -55,3 +55,13 @@ We limited our analysis to 2023 and 2024 data due to the scarcity of data points
 * Respect deadlines and milestones set for the project.
 
 This README provides an overview of our project's approach, data handling, and initial analysis. Further details and code can be found within the repository.
+
+# Team Project 1 - Video Links
+
+* Melih Can Alan - https://youtu.be/hgoaU8LT5n4
+* Benjamin Su - https://drive.google.com/file/d/1csELSsSIKfnryczOst4nuJFwQgT0Wqi8/view?usp=drive_link   
+* Sergii Khomych - https://drive.google.com/file/d/1aTSNa3nn_3PMhSA-oK_jV09r3PYJ7u-K/view?usp=drive_link   
+   (Unfortunately my linux video recorder doesn't record voice. I worked to establish programming part of the project, resolved PRs conflicts, actively discussed research approaches)   
+
+
+
