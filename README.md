@@ -1,57 +1,190 @@
-# Team Project: Data Science and Machine Learning Foundations Certificate
-This project is a collaborative effort for the Data Science and Machine Learning Foundations certificate program. Our team explored the landscape of data developer salaries and employment attributes using the 2024 data developer salaries dataset.
+# Team Project Part 2
 
-## Project Approach
+## Description
 
-### Project Setup:
+The team continues to apply newly acquired skills and revisit the team project 1 salary dataset, adding a new dataset - cost of living dataset by country to the existing dataset. All of us adopted different methods and approaches to preprocess the data and analyze the data.
 
-We established a project repository on GitHub "https://github.com/benjso/team_project" with a connected project plan. "https://github.com/users/benjso/projects/1"
-We used the project board to organize tasks and assign them to team members.
+This project applies skills from the following previous modules:
 
-### Data Exploration:
+* Introduction to Building Software (Shell, Git, Python)
+* SQL
+* Applying Statistical Concepts (Linear regression, classification, and resampling
+* Scaling to Production
+* Algorithm & Data Structures (Machine Learning Software Foundations Certificate)
+* Deep Learning (Machine Learning Software Foundations Certificate)
 
-Each team member proposed potential datasets.
+Below includes a summary of the dataset, issues to solve, approaches/models adopted, performance comparison, insights as well as the list of videos regarding this project from each member. 
 
-We initially explored datasets using Excel. For larger datasets, we employed Python code to extract the first 1,000 rows for preliminary analysis. Raw data can be found in the data/raw folder.
+1. Summary of the dataset:
 
-### Data Selection and Acquisition:
+The salary data is from Kaggle. Due to the large dataset, the portion below 50k has been removed. There are 94 countries and over 3000 job titles in the dataset. 
 
-We chose the 2024 data developer salaries dataset due to its rich information on job titles, experience levels, salaries, and more.
+The cost of living index data is merged to the salary data on Country name. The cost of living data is from https://www.numbeo.com/cost-of-living/rankings_by_country.jsp?title=2024, using the Cost of Living by Country data for year 2024.
 
-This dataset allows exploration of salary trends, employment patterns, and geographical variations in data developer roles.
+2. Issues to solve:
+   
+Multi-classification issue: Predict the salary bins/buckets at 10000 intervals.
+Regression issue: Use available predictors to predict the target value Salary.
 
-### Data Cleaning and Enrichment:
+3. Approach used to solve the issue and reason
+   
+(1) Pipeline approach to solve the multi-classification issue
+   
+(2) Deep learning embedding model to solve the regression issue
+   
+   Reason to use this approach apply the knowledge and skills learned in the ML sessions. Also in the dataset, there are many categorical values. For example, there are 95 values for country and around 3500 values for job titles. Embedding approach is a good way to solve the issue with many categorical values.
+   
+(3) Neural Network model to solve the regression issue
+   
+   Reason to use this approach is to apply the knowledge points and skills we learned most recently in ML sessions. 
+ 
+4. Performance comparison
+   
+(1) Pipeline approach:
 
-We addressed the large number of job titles (155) by creating functional and seniority categories for data grouping.
 
-To investigate the impact of location on salaries, a new column was added to indicate whether employee and company locations matched.
+The final Logistic Regression model achieved the following performance on the test set tuned by RandomizedSearch:
+Log loss: 0.7338,
+Accuracy: 0.7451,
+Balanced accuracy: 0.4944,
+ROC AUC: 0.8573.
 
-Many countries were present, so we grouped them into regions for better analysis.
+The final Logistic Regression model achieved the following performance on the test set tuned by GridSearch:
+Log loss: 0.9242,
+Accuracy: 0.6659,
+Balanced accuracy: 0.5557,
+ROC AUC: 0.8651.
 
-Python code was implemented to remove 1% of outliers within the data.
+(2) Deep learning embedding model:
 
-Processed data resides in the data/processed folder.
+Mean Absolut Error: 0.42 within 5% of the mean target value of salary 8.4.
+The predicted value is within 5% range (4.2k) in comparison to the average true value (84k).
 
-The processed data was also exported to an SQL file (data/processed.sql) for future use and readability.
+(3) Neural Network model:
 
-### Model Building and Analysis:
+Loss: 0.0039 - Mean Absolut Error: 0.0039 - Mean Squared Error : 8.6752e-05, with the prediction variance within 5% range.
 
-We employed the sm.OLS method to explore the relationship between salary and various predictors.
+5. Insights from visualization:
 
-We rejected the null hypothesis, confirming a relationship between salary (USD) and the predictors.
+From the TSNE graph from embedding approach, we can see that certain job titles do get compensated better in comparison with others in general. The salary variance is more obvious by different job titles, than with different countries.
 
-Focusing on key relationships, we identified experience level and data year as highly correlated with salary. These variables were chosen for model building.
 
-Four separate linear regression models were created for each distinct experience level. Charts were generated to compare mean salary differences between 2023 and 2024.
+(6. Video links:)
 
-We limited our analysis to 2023 and 2024 data due to the scarcity of data points in previous years (2020-2022).
+* Benjamin Su - https://drive.google.com/file/d/1mB_5qPZJzdtjhonOlV7kl8dqJLuWDiVw/view?usp=sharing
 
-## Team Rules of Engagement
 
-* Maintain clear communication and collaboration throughout the project.
-* Divide tasks fairly and ensure timely completion.
-* Utilize version control (Git) effectively to track changes and maintain code history.
-* Conduct code reviews to ensure quality and maintainability.
-* Respect deadlines and milestones set for the project.
 
-This README provides an overview of our project's approach, data handling, and initial analysis. Further details and code can be found within the repository.
+# Team Project 2 - Project Repository Activities/Logs
+
+* Benjamin Su - Explored and identified the source data from Kaggle.com, performed data pre-processing and then collaborated with team members to merge other datasets from multiple channels, loaded the data into SQL DB for feeding the training model. Determined and used Neural Network model with implementation of algorithm through Python programming for training the model and testing as well as model tuning-up. Organized the meetings and discussions in the team to catch up with the project timeline, and worked with the team to compare different models and training/test results with relevant analysis.
+
+
+#### Below paragraphs are the orginal requirements for this team project ####
+---------------------------------------------------------------------------------------------------------------------
+
+
+# Team Project
+
+## Description
+
+
+The team project consists of two modules. Each module requires participants to apply the skills they have learned to date, and explore a dataset of their choosing. The first part of the team project involves creating a simple program with a database in order to analyze a dataset from an open source, such as Kaggle. In the second part of the team project, teams will come together again and apply the skills developed in each of the data science or machine learning foundations certificate streams. Teams will either create a data visualization or a machine learning model.
+
+Participants will work in assigned teams of 4-5. 
+
+#### Project Descriptions
+
+* [First Team Project Description](./team_project_1.md)
+* [Second Team Project Description](./team_project_2.md)
+
+## Learning Outcomes
+By the end of Team Project Module 1, participants will be able to:
+* Resolve merge conflicts
+* Describe common problems or challenges a team encounters when working collaboratively using Git and GitHub
+* Create a program to analyze a dataset with contributions from multiple team members
+
+By the end of Team Project Module 2, participants will be able to:
+* Create a data visualization as a team
+* Create a machine learning model as a team
+
+### Contacts
+**Questions can be submitted to the _#cohort-3-help_ channel on Slack**
+
+* Technical Facilitator: 
+  * **Kamilah Ebrahim**(she/her)
+  kamilah.ebrahim@mail.utoronto.ca
+
+* Learning Support Staff:
+
+  * **Farzaneh Hashemi** (she/her )
+  fhashemi.ma@gmail.com
+  * **Tong Su** (she/her)
+  tong.su@mail.utoronto.ca
+
+### Delivery of Team Project Modules
+
+Each Team Project module will include two live learning sessions and one case study presentation. During live learning sessions, facilitators will introduce the project, walk through relevant examples, and introduce various team skills that support project success. The remaining time will be used for teams to assemble and work on their projects, as well as get help from the facilitator or the learning support to troubleshoot any issues a team may be encountering. 
+
+Work periods will also be used as opportunities for teams to collaborate and work together, while accessing learning support. 
+
+### Schedule
+
+|Day 1|Day 2|Day 3|Day 4|Day 5|
+|-----|-----|-----|-----|-----|
+|Live Learning Session |Live Learning Session|Case Study|Work Period|Work Period|
+
+## Requirements
+* Participants are expected to attend live learning sessions and the case study as part of the learning experience. Participants are encouraged to use the scheduled work period time to complete their projects.
+* Participants are encouraged to ask questions and collaborate with others to enhance learning.
+* Participants must have a computer and an internet connection to participate in online activities.
+* Participants must not use generative AI such as ChatGPT to generate code to complete assignments. It should be used as a supportive tool to seek out answers to questions you may have.
+* We expect participants to have completed the [onboarding repo](https://github.com/UofT-DSI/onboarding/tree/main/onboarding_documents).
+* We encourage participants to default to having their camera on at all times, and turning the camera off only as needed. This will greatly enhance the learning experience for all participants and provides real-time feedback for the instructional team. 
+
+### How to get help
+![image](/steps-to-ask-for-help.png)
+
+## Folder Structure
+
+### Project 1
+```markdown
+|-- data
+|---- processed
+|---- raw
+|---- sql
+|-- reports
+|-- src
+|-- README.md
+|-- .gitignore
+```
+
+### Project 2
+```markdown
+|-- data
+|---- processed
+|---- raw
+|---- sql
+|-- experiments
+|-- models
+|-- reports
+|-- src
+|-- README.md
+|-- .gitignore
+```
+
+* **Data:** Contains the raw, processed and final data. For any data living in a database, make sure to export the tables out into the `sql` folder, so it can be used by anyone else.
+* **Experiments:** A folder for experiments
+* **Models:** A folder containing trained models or model predictions
+* **Reports:** Generated HTML, PDF etc. of your report
+* **src:** Project source code
+* README: This file!
+* .gitignore: Files to exclude from this folder, specified by the Technical Facilitator
+
+# Team Project 2 - Project Repository Activities/Logs
+* Benjamin Su - Explored and identified the source data from Kaggle.com, performed data pre-processing and then collaborated with team members to merge other datasets from multiple channels, loaded the data into SQL DB for feeding the training model. Determined and used Neural Network model with implementation of algorithm through Python programming for training the model and testing as well as model tuning-up. Organized the meetings and discussions in the team to catch up with the project timeline, and worked with the team to compare different models and training/test results with relevant analysis.
+
+
+# Team Project 2 - Video Links
+* Benjamin Su - https://drive.google.com/file/d/1mB_5qPZJzdtjhonOlV7kl8dqJLuWDiVw/view?usp=sharing   
+
