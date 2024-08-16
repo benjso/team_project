@@ -2,6 +2,94 @@
 
 ## Description
 
+The team continues to apply newly acquired skills and revisit the team project 1 salary dataset, adding a new dataset - cost of living dataset by country to the existing one. All of us adopted different methods and approaches to preprocess and analyze the data.
+
+This project applies skills from the following previous modules:
+
+* Introduction to Building Software (Shell, Git, Python)
+* SQL
+* Applying Statistical Concepts (Linear regression, classification, and resampling
+* Scaling to Production
+* Algorithm & Data Structures (Machine Learning Software Foundations Certificate)
+* Deep Learning (Machine Learning Software Foundations Certificate)
+
+Below includes a summary of the dataset, issues to solve, approaches/models adopted, performance comparison, insights as well as the list of videos regarding this project from each member. 
+
+1. Summary of the dataset:
+
+The salary data is from Kaggle. Due to the large dataset, the portion below 50k has been removed. There are 94 countries and over 3000 job titles in the dataset. 
+
+The cost of living index data is merged to the salary data on Country name. The cost of living data is from https://www.numbeo.com/cost-of-living/rankings_by_country.jsp?title=2024, using the Cost of Living by Country data for year 2024.
+
+2. Issues to solve:
+   
+Multi-classification issue: Predict the salary bins/buckets at 10000 intervals.
+
+Regression issue: Use available predictors to predict the target value Salary.
+
+3. Approach used to solve the issue and reason
+   
+(1) Pipeline approach to solve the multi-classification issue
+   
+(2) Deep learning embedding model to solve the regression issue
+   
+   Reason to use this approach apply the knowledge and skills learned in the ML sessions. Also in the dataset, there are many categorical values. For example, there are 95 values for country and around 3500 values for job titles. Embedding approach is a good way to solve the issue with many categorical values.
+   
+(3) Neural Network model to solve the regression issue
+   
+   Reason to use this approach is to apply the knowledge points and skills we learned most recently in ML sessions. 
+ 
+4. Performance comparison
+   
+(1) Pipeline approach:
+
+The final Logistic Regression model achieved the following performance on the test set tuned by RandomizedSearch:
+Log loss: 0.7338,
+Accuracy: 0.7451,
+Balanced accuracy: 0.4944,
+ROC AUC: 0.8573.
+
+The final Logistic Regression model achieved the following performance on the test set tuned by GridSearch:
+Log loss: 0.9242,
+Accuracy: 0.6659,
+Balanced accuracy: 0.5557,
+ROC AUC: 0.8651.
+
+(2) Deep learning embedding model:
+
+Mean Absolute Error: 0.42, which is within 5% of the mean target value (salary) 8.4; Mean Squared Error: 0.699.
+
+The predicted value is within 5% range (4.2k) of the average true value (84k).
+
+(3) Neural Network model:
+
+Loss: 0.0039 - Mean Absolut Error: 0.0039 - Mean Squared Error : 8.6752e-05, with the prediction variance within 5% range.
+
+5. Insights from visualization:
+
+From the TSNE graph of embedding approach, we can see that certain job titles do get compensated better in comparison with others in general. The salary variance is more obvious by different job titles, than with different countries.
+
+
+6. Video links:
+
+* Benjamin Su - https://drive.google.com/file/d/1mB_5qPZJzdtjhonOlV7kl8dqJLuWDiVw/view?usp=sharing
+* Yuanyuan (Caroline) Zhang - https://drive.google.com/file/d/1xX5G11Nhl22CtSwT_tFi0o3HFe0Y1BvM/view?usp=drive_link
+* Sergii Khomych - https://drive.google.com/file/d/1dEOo2AlyYynxMLBJ2NyEb9c9BqQrSchH/view?usp=drive_link
+
+# Team Project 2 - Project Repository Activities/Logs
+
+* Benjamin Su - Explored and identified the source data from Kaggle.com, performed data pre-processing and then collaborated with team members to merge other datasets from multiple channels, loaded the data into SQL DB for feeding the training model. Determined and used Neural Network model with implementation of algorithm through Python programming for training the model and testing as well as model tuning-up. Organized the meetings and discussions in the team to catch up with the project timeline, and worked with the team to compare different models and training/test results with relevant analysis.
+
+* Caroline Zhang - Explored and made suggestion on combining existing salary dataset with cost of living dataset on country name, so that the predictors are not only limited to categorical values, such as Country, and Job Title, it also contains the cost of living index numerical value; merged the two dataset into one on Country; developed a deep learning regression model with embeddings, produced visualizations to gain insights; set the structure and drafted the README file to include a summary of the dataset, issue to solve, approaches adopted and reasons, performance comparison, insights; leveraged github, slack and google meet to collaborate with the team while working on the project.
+
+
+#### Below paragraphs are the orginal requirements for this team project ####
+---------------------------------------------------------------------------------------------------------------------
+
+# Team Project Part 2
+
+## Description
+
 Working together in your project team, you'll continue to apply your newly acquired skills and revisit your program from Part 1. Data Science Certificate participants will collaborate to creatively visualize their data. Participants working toward the Machine Learning Software Foundations Certificate will work together to deploy a machine learning model. For example, your team might choose to develop a sentiment analysis model for social media comments in order to enable businesses to gauge public opinion effectively.
 
 At the end of the module, all team members are encouraged to fork the repo onto their profile so that prospective employers can view the project on all of your profiles. 
